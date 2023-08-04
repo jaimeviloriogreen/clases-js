@@ -13,5 +13,5 @@ let edad = 0;
 
 edad = anioActual - anioNacimiento;
 
-console.log(`Hola, mi nombre es ${ nombre } ${ apellido } y tengo ${ edad } años de edad.`)
+console.log(`Hola, mi nombre es ${ nombre } ${ apellido } y tengo ${ edad } años de edad.`);
 
