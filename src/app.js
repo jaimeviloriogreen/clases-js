@@ -1,2 +1,2 @@
-import "./tareas/tarea2-semana1.js";
+import "./tareas/tarea3-semana1.js";
 
