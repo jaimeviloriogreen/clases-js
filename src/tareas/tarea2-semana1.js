@@ -3,10 +3,16 @@ Como salida el programa debe mostrar el nombre del estudiante y el promedio del 
 */
 
 let nombre = prompt("Indica tu nombre:");
-let promedio = parseFloat(prompt("Indica tu promedio de calificación:"));
+
+let n1 = parseInt(prompt("Indica la primera calificación:"));
+let n2 = parseInt(prompt("Indica la segunda calificación:"));
+let n3 = parseInt(prompt("Indica la tercera calificación:"));
+let n4 = parseInt(prompt("Indica la cuarta calificación:"));
+
+let promedio = (n1+n2+n3+n4) / 4;
 
 if( promedio >= 70){
-    console.log(`${nombre} estás aprobado!`);
+    console.log(`Posees una promedio de ${promedio} por lo que ${nombre} estás aprobado!`);
 }else{
-    console.log(`${nombre} estás reprobado!`);
+    console.log(`Posees una promedio de ${promedio} por lo que ${nombre} estás reprobado!`);
 }
