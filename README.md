@@ -1,4 +1,4 @@
-# Clases de Javascritp
+# Clases de Javascritpt
 Técnico en Diseño y creación de Software
 
 
