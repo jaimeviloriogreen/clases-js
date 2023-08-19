@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases de Javascript</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="app.js"></script>
+</head>
+<body>
+    <main class="main">
+        <h1 class="main__title">Tarea 1 Semana 3 <span>JavaScript</span></h1>
+        <form class="formApariencia form">
+            <fieldset class="form__fieldset colorFondo">
+                <legend class="colorFondo__legend">Cambiar color de la Página:</legend>
+                <label class="colorFondo__label" for="colorFondo">Elige un color:</label>
+                <input class="colorFondo__input" type="color" name="colorFondo" id="colorFondo">
+            </fieldset>
+
+            <fieldset class="form__fieldset colorFuente">
+                <legend class="colorFuente__legend">Cambiar color de la Fuente:</legend>
+                <label class="colorFuente__label" for="colorFuente">Elige un color:</label>
+                <input class="colorFuente__input" type="color" name="colorFuente" id="colorFuente">
+            </fieldset>
+
+            <fieldset class="form__fieldset pesoFuente">
+                <legend class="pesoFuente__legend">Cambiar el peso de la fuente:</legend>
+                <label class="pesoFuente__label" for="pesoFuente">Elige peso:</label>
+                <select name="pesoFuente" id="pesoFuente">
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="400">400</option>
+                    <option value="500">500</option>
+                    <option value="600">600</option>
+                    <option value="700">700</option>
+                    <option value="800">800</option>
+                    <option value="900">900</option>
+                </select>
+            </fieldset>
+
+
+            <fieldset class="form__fieldset tipografia">
+                <legend class="tipografia__legend">Cambiar el peso de la fuente:</legend>
+                <label class="tipografia__label" for="tipografia">Elige una tipografía:</label>
+                <select name="tipografia" id="tipografia">
+                    <option value="'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Franklin Gothic Medium</option>
+                    <option value="'Courier New', Courier, monospace">Courier New</option>
+                    <option value="'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Gill Sans</option>
+                    <option value="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Lucida Sans</option>
+                    <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI</option>
+                    <option value="'Times New Roman', Times, serif">Times New Roman</option>
+                    <option value="'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Trebuchet MS</option>
+                    <option value="Arial, Helvetica, sans-serif">Arial</option>
+                    <option value="Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Cambria</option>
+                    <option value="Georgia, 'Times New Roman', Times, serif">Georgia</option>
+                    <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Impact</option>
+                </select>
+            </fieldset>
+        </form>
+
+        <form class="form habilidades">
+            <fieldset class="form__fieldset">
+                <legend>Ingresa tus habilidades</legend>
+                <input class="habilidades__input" type="text" name="habilidad" placeholder="Skills">
+                <button class="form__btn" type="submit">Ingresar</button>
+            </fieldset>
+        </form>
+
+        <section class="items">
+            <h2>Mi habilidades</h2>
+            <ul class="items__list">
+                <li class="items__item">HTML5</li>
+                <li class="items__item">CSS3</li>
+                <li class="items__item">Javascript</li>
+            </ul>
+        </section>
+
+    </main>
+</body>
+</html>
