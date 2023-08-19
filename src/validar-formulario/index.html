@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="./app.js"></script>
+</head>
+<body>
+    <!-- Alerts -->
+    <!-- ¡Registro exitoso! -->
+    <!-- ¡Tienes un error! -->
+    <section class="alert">
+        <h2 class="alert__text"></h2>
+        <img src="./equis.svg" alt="error" class="alert__icon">
+    </section>
+
+    <main class="main">
+        <h1 class="main__title">Formulario de Registro</h1>
+
+        <!-- Formulario -->
+        <form class="form" autocomplete="off">
+            <input class="form__input" type="text" name="nombre" placeholder="Nombre" autofocus>
+            <input class="form__input" type="text" name="apellido" placeholder="Apellido">
+            <input class="form__input" type="text" name="cedula" placeholder="Cédula">
+            <input class="form__input" type="text" name="telefono" placeholder="Teléfono">
+            <input class="form__input" type="text" name="edad" placeholder="Edad">
+            <input class="form__input" type="text" name="email" placeholder="Email">
+            
+            <fieldset class="fieldset fecha">
+                <legend for="fecha" class="form__legend">Fecha de Nacimiento</legend>
+                <input class="form__select" type="date" name="fecha" id="fecha">
+            </fieldset>
+
+            <fieldset class="fieldset nacionalidades">
+                <legend class="form__legend">Nacionalidad</legend>
+                <select class="form__select" name="nacionalidad">
+                    <option value="">Ninguna</option>
+                    <option value="dominicana">Dominicano</option>
+                    <option value="venezolano">Venezolano</option>
+                    <option value="colombiano">Colombiana</option>
+                    <option value="otra">Otra</option>
+                </select>
+           </fieldset>
+
+           <fieldset class="fieldset genero">
+                <legend class="form__legend">Género</legend>
+                <label for="masculino">M</label>
+                <input class="form__radio" type="radio" name="sexo" value="m" id="masculino">
+                
+                <label for="femenino">F</label>
+                <input class="form__radio" type="radio" name="sexo" value="f" id="femenino">
+           </fieldset>
+
+           
+
+           <button class="form__btn" type="submit">Enviar</button>
+        </form>
+    </main>
+</body>
+</html>
