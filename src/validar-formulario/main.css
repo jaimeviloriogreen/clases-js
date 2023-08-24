@@ -54,7 +54,7 @@ body{
 }
 .alert__icon{cursor: pointer;}
 .alert{
-    width: 13rem;
+    width: 15rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,6 +65,7 @@ body{
     border-radius: .25rem;
     opacity: 0;
     transition: transform 300ms ease;
+    max-width: 100%;
 
 }
 .error{
