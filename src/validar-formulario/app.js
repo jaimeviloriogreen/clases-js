@@ -27,7 +27,7 @@ function validarFormulario(e){
     const expRegCedula = /^([0-9]{11})$/g;
     const expRegTelefono = /^([0-9]{10})$/g;
     const expRegEdad = /^([0-9]{1,3})$/g;
-    const expRegEmail = /^([a-z]+)@([a-z]+)\.([a-z]{2,3})(\.([a-z]{2,3}))?$/gi;
+    const expRegEmail = /^([a-z]+)@([a-z]+)\.([a-z]{2,3})(\.([a-z]{2,3}))?$/g;
 
     expRegNombres.lastIndex = 0;
     if(!expRegNombres.test(nombre.value)){
@@ -97,32 +97,20 @@ function validarFormulario(e){
 
 function manageErrorAlert(error){
     if(error){
-        alert.style.display = "flex";
         alertText.textContent = "¡Tienes un error!";
         
-        if(alert.classList.contains("success")){
-            alert.classList.remove("success");
-        }
+        if(alert.classList.contains("success")) alert.classList.remove("success");
+
         alert.classList.add("error");
     }else{
-        alert.style.display = "flex";
         alertText.textContent = "¡Registro exitoso!";
         
-        if(alert.classList.contains("error")){
-            alert.classList.remove("error");
-        }
-
+        if(alert.classList.contains("error")) alert.classList.remove("error");
+        
         alert.classList.add("success");
-        form.reset();
     }
 }
 
 function showAlertError(){
-    if(alert.classList.contains("error")){
-        alert.classList.remove("error")
-    }
-
-    if(alert.classList.contains("success")){
-        alert.classList.remove("success")
-    }
+    alert.classList.forEach(cl => cl != "alert" ? alert.classList.remove(cl): null);
 }
