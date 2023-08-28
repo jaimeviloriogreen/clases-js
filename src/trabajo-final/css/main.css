@@ -126,7 +126,7 @@
     width: 100%;
     color: var(--color5);
 }
-.table__thead{height: 3rem;}
+.table__thead{height: 3.25rem; background-color: rgba(235, 235, 235, .5);}
 .table__theading, 
 .table__tdata{
     border: 2px solid #c4bfbf;
