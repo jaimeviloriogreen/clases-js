@@ -8,6 +8,9 @@ const form = document.querySelector(".form");
 const containerTable = document.querySelector(".products__container--table");
 const containerIcon = document.querySelector(".products__container--icon");
 
+containerTable.addEventListener("click", idProductoAction);
+
+
 //? Arreglos y Objetos 
 let productos = [];
 const getProducto = (id, producto, precio, cantidad) =>({id, producto, precio, cantidad}); 
@@ -19,19 +22,30 @@ agregar.addEventListener("click", mostrarAgregarForm);
 if(btnCancelar) btnCancelar.addEventListener("click", cancelarAgregarForm);
 if(form) form.addEventListener("submit", capturarProductosForm);
 
+
 //? Funciones
 function mostrarAgregarForm(e){
     e.stopPropagation();
 
+    if(form.classList.contains("form--animationHide")){
+        form.classList.remove("form--animationHide");
+    }   
+
     productForm.classList.remove("product__form--display");
-    form.classList.add("form--animation");
+    form.classList.add("form--animationShow");
     form.producto.focus();
 }
 
 function cancelarAgregarForm(e){
     e.stopPropagation();
-    
-    productForm.classList.add("product__form--display");
+
+    if(form.classList.contains("form--animationShow")){
+        form.classList.remove("form--animationShow");
+    }   
+
+    form.classList.add("form--animationHide");
+
+    setTimeout(()=> productForm.classList.add("product__form--display"), 175);
 }
 function capturarProductosForm(e){
     e.preventDefault();
@@ -75,6 +89,7 @@ function renderizarBodyTable({id, producto, precio, cantidad}){
         const td = document.createElement("td");
         td.className = "table__tdata";
         td.textContent = item;
+        tr.dataset.id = id;
         tr.append(td);
     });
     
@@ -91,7 +106,7 @@ function renderizarBodyTable({id, producto, precio, cantidad}){
         button.dataset.id = id;
 
         const img = document.createElement("img");
-        img.className = "table__icon";
+        img.classList.add("table__icon", `table__icon--${action}`);
         img.src = `./icons/${ action }.svg`;
         img.alt = `${action}`;
 
@@ -104,10 +119,9 @@ function renderizarBodyTable({id, producto, precio, cantidad}){
     tr.append(tdAction);
     tableBody.append(tr);
 }
-
 function calcularFactura(){
     let subTotal = 0;
-
+        
     if(productos.length > 0){
         subTotal = productos.reduce((prev, {_, precio, cantidad})=> prev + (precio * cantidad), 0);
     }
@@ -118,7 +132,6 @@ function calcularFactura(){
     }
 
 }
-
 function renderizarFactura(subTotal, itbis, total){
     const totalHTML = document.querySelector(".total__value");
     const itbisHTML = document.querySelector(".itbis__span--mount");
@@ -129,3 +142,35 @@ function renderizarFactura(subTotal, itbis, total){
     subTotalHTML.textContent = `${ f.format(subTotal) }`;
 
 }
+function idProductoAction(e){
+    if(e.target.classList.contains("table__delete") || 
+    e.target.classList.contains("table__icon--delete")){
+        const id = e.target.dataset.id || e.target.parentElement.dataset.id;
+        eliminarItemTable(id);
+
+        eliminarItemProducto(id);
+    }
+}
+function eliminarItemTable(id){
+    const trs = document.querySelector(".table__tbody").childNodes;
+        trs.forEach((tr) => {
+            if(tr.dataset.id == id){
+                tr.remove();
+            }
+        });
+};
+function eliminarItemProducto(id){
+    const idx = productos.findIndex(p => p.id == id);
+    productos.splice(idx, 1);
+    
+    const {subTotal, itbis, total} = calcularFactura();
+    renderizarFactura(subTotal, itbis, total);
+    console.log(productos);
+
+    if(productos.length <= 0){
+        containerTable.classList.add("products__container--display");
+        containerIcon.classList.remove("products__container--display");
+    }
+}
+
+
