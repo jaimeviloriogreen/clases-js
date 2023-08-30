@@ -8,7 +8,7 @@ const form = document.querySelector(".form");
 const containerTable = document.querySelector(".products__container--table");
 const containerIcon = document.querySelector(".products__container--icon");
 
-containerTable.addEventListener("click", idProductoAction);
+containerTable.addEventListener("click", doAction);
 
 
 //? Arreglos y Objetos 
@@ -25,8 +25,7 @@ if(form) form.addEventListener("submit", capturarProductosForm);
 
 //? Funciones
 function mostrarAgregarForm(e){
-    e.stopPropagation();
-
+    // e.stopPropagation();
     if(form.classList.contains("form--animationHide")){
         form.classList.remove("form--animationHide");
     }   
@@ -142,13 +141,18 @@ function renderizarFactura(subTotal, itbis, total){
     subTotalHTML.textContent = `${ f.format(subTotal) }`;
 
 }
-function idProductoAction(e){
+function doAction(e){
     if(e.target.classList.contains("table__delete") || 
     e.target.classList.contains("table__icon--delete")){
         const id = e.target.dataset.id || e.target.parentElement.dataset.id;
         eliminarItemTable(id);
-
         eliminarItemProducto(id);
+    }
+
+    if(e.target.classList.contains("table__edit") || 
+    e.target.classList.contains("table__icon--edit")){
+        const id = e.target.dataset.id || e.target.parentElement.dataset.id;
+        console.log(id);
     }
 }
 function eliminarItemTable(id){
