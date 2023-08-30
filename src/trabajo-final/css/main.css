@@ -87,8 +87,10 @@
     color: var(--color1);
 }
 .form__btn--cancelar{background-color: var(--color4);}
-.form__btn--aceptar{background-color: var(--color6);}
-
+.form__btn--insertar{background-color: var(--color6);}
+.table__row[data-id="1"]{
+    color: red;
+}
 .products{
     width: 100%;
     height: 100%;
